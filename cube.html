@@ -1,0 +1,515 @@
+<html>
+<body>
+
+
+<div>
+<canvas id="myCanvas" width="500" height="500"
+>
+Your browser does not support the HTML5 canvas tag.</canvas>
+    
+    
+<style>
+    
+.tb5 {
+	border:2px solid #456879;
+	border-radius:15px;
+	height: 22px;
+	width: 230px;
+}
+    
+	
+    .button {
+        -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    width: auto;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-top-color: transparent;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-color: transparent;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: transparent;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    border-radius: 2px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    padding: 8px 15px;
+    padding-top: 8px;
+    padding-right: 15px;
+    padding-bottom: 8px;
+    padding-left: 15px;
+    background-color: #28879d;
+    color: #fff;
+    font-family: "Work Sans","HelveticaNeue","Helvetica Neue",sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: normal;
+    font-size: 12px;
+}
+    
+.dropbtn {
+        -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    width: auto;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-top-color: transparent;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-color: transparent;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: transparent;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    border-radius: 2px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    padding: 8px 15px;
+    padding-top: 8px;
+    padding-right: 15px;
+    padding-bottom: 8px;
+    padding-left: 15px;
+    background-color: #28879d;
+    color: #fff;
+    font-family: "Work Sans","HelveticaNeue","Helvetica Neue",sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: normal;
+    font-size: 12px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+	
+	font-family: "Work Sans","HelveticaNeue","Helvetica Neue",sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: normal;
+    font-size: 12px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #208197;
+}
+    
+    @import url(https://fonts.googleapis.com/css?family=Roboto:700);
+body{
+  background-color: rgb(255,255,255);
+  text-align: center;
+  padding: 40px 0 0 0; 
+}
+fieldset{
+  border: none;
+}
+output{
+  display: inline-block;
+  min-width: 2.5em;
+}
+label, output{
+  padding: 2px 9px;
+  border-radius: 3px;
+  font-family: 'Roboto', sans-serif;
+  color: #000;
+  font-size: 1.1em;
+}
+label[for=r], output[for=r]{
+  background-color: #f00;
+}
+label[for=g], output[for=g]{
+  background-color: #0f0;
+}
+label[for=b], output[for=b]{
+  background-color: #00f;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 10%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #3071a9;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -14px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #367ebd;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #3071a9;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #2a6495;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-fill-upper {
+  background: #3071a9;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #3071a9;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #367ebd;
+}
+
+#hex{
+  min-width: 4.5em;
+  font-size: 0em;
+  background: rgba(255,255,255,.3);
+}
+#cost{
+  min-width: 4.5em;
+  font-size: 3em;
+  background: rgba(255,255,255,.3);
+}
+.cost{
+  min-width: 4.5em;
+  font-size: 3em;
+  background: rgba(255,255,255,.3);
+}
+    
+</style>
+
+<body>
+    <div>
+    <input type="text" class="tb5" id="nameBar" value="name">
+    </div>
+    <br>
+    
+    
+<div class="dropdown">
+  <button class="dropbtn">Cube</button>
+  <div class="dropdown-content">
+    <a id="clickMe" type="button" onClick="makeCube('s');">Small</a>
+    <a id="clickMe" type="button" onClick="makeCube('m');">Medium</a>
+    <a id="clickMe" type="button" onClick="makeCube('l');">Large</a>
+  </div>
+</div>
+    
+    <div class="dropdown">
+  <button class="dropbtn">Smile</button>
+  <div class="dropdown-content">
+    <a id="clickMe" type="button" onClick="smileType(0);">Small</a>
+    <a id="clickMe" type="button" onClick="smileType(1);">Big</a>
+    <a id="clickMe" type="button" onClick="smileType(2);">X</a>
+    <a id="clickMe" type="button" onClick="smileType(3);">Grin</a>
+    <a id="clickMe" type="button" onClick="smileType(4);">Nya</a>
+  </div>
+</div>
+   
+    
+    
+
+ <div><fieldset>
+  <label for="r">R</label>
+  <input type="range" min="0" max="255" id="r" step="1" value="255">
+  <output for="r" id="r_out">255</output>
+</fieldset>  
+
+<fieldset>
+  <label for="g">G</label>
+  <input type="range" min="0" max="255" id="g" step="1" value="255">
+  <output for="g" id="g_out">255</output>
+</fieldset>
+
+<fieldset>
+  <label for="b">B</label>
+  <input type="range" min="0" max="255" id="b" step="1" value="255">
+  <output for="b" id="b_out">255</output>
+</fieldset>  
+
+<output id="cost">$0.0</output></div>
+<output id="hex">#ffffff</output></div>
+    
+
+
+    <b>
+    <br>
+        
+    <div>
+        <button class="button" onClick="submit()">Submit</button>
+        </div>
+<script>
+    var name;
+    var cost = 0.0;
+	var price = "$" + cost;
+	var bodyCost = 0;
+	
+    var cube1 = new Image(); // HTML5 Constructor
+    cube1.src = 'cube_1.png';
+    var cube2 = new Image(); // HTML5 Constructor
+    cube2.src = 'cube_2.png';
+    var cube3 = new Image(); // HTML5 Constructor
+    cube3.src = 'cube_3.png';
+    
+    
+    var smile1 = new Image();
+    smile1.src = 'mouth_smile.png';
+    var smile2 = new Image();
+    smile2.src = 'mouth_smile2.png';
+    var mouthX = new Image();
+    mouthX.src = 'mouth_x.png';
+    var grin = new Image();
+    grin.src = 'mouth_grin.png';
+    var nya = new Image();
+    nya.src = 'mouth_nya.png';
+    var Cmouth = smile1;
+    
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.rect(0, 0, 600, 600);
+    var cubeSize = 'm';
+    var Cbody = cube2;
+    var body = document.body, 
+    r = document.querySelector('#r'),
+    g = document.querySelector('#g'),
+    b = document.querySelector('#b'),
+    r_out = document.querySelector('#r_out'),
+    g_out = document.querySelector('#g_out'),
+    b_out = document.querySelector('#b_out'),
+    hex_out = document.querySelector('#hex');
+	cost_out = document.querySelector('#cost');
+    
+    window.onload = startUp;
+    
+    
+function startUp(){
+        updateCube();
+    }
+    //michael was here
+   
+function makeCube(value){
+        ctx.clearRect(0,0,450,450);
+    var size = value;
+        ctx.fillStyle = hex;
+    ctx.fillRect(0,0,450,450);
+        switch (size){
+            case 's':
+                Cbody = cube1;
+                cubeSize = 's';
+				bodyCost = 10.0;
+                break;
+            case 'm':
+                Cbody = cube2;
+                cubeSize = 'm';
+				bodyCost = 50.0;
+                break;
+            case 'l':
+                Cbody = cube3;
+                cubeSize = 'l';
+				bodyCost = 85.0;
+                break;
+        }
+        updateCube();
+        }
+    
+function smileType(type){
+    switch (type){
+        case 0:
+            Cmouth = smile1;
+            break
+        case 1:
+            Cmouth = smile2;
+            break;
+        case 2:
+            Cmouth = mouthX;
+            break;
+        case 3:
+            Cmouth = grin;
+            break;
+        case 4:
+            Cmouth = nya;
+            break;
+    }
+updateCube();
+}
+    
+function updateCube(){
+	cost = bodyCost;
+	price = "$" + cost;
+	cost_out.value = price;
+    var r_hex = parseInt(r.value, 10).toString(16),
+    g_hex = parseInt(g.value, 10).toString(16),
+    b_hex = parseInt(b.value, 10).toString(16),
+    hex = "#" + pad(r_hex) + pad(g_hex) + pad(b_hex);
+    ctx.fillStyle = hex;
+    ctx.fillRect(0,0,450,450);
+        hex_out.value = hex;
+    ctx.drawImage(Cbody, 0, 0);
+    ctx.drawImage(Cmouth, 0, 0);
+    }
+
+function setColor(){
+    updateCube();
+}
+
+function pad(n){
+  return (n.length<2) ? "0"+n : n;
+}
+    
+    function submit(){
+        name = document.getElementById("nameBar").value;
+        console.log(name);
+    }
+
+r.addEventListener('change', function() {
+  setColor();
+  r_out.value = r.value;
+}, false);
+
+r.addEventListener('input', function() {
+  setColor();
+  r_out.value = r.value;
+}, false);
+
+g.addEventListener('change', function() {
+  setColor();
+  g_out.value = g.value;
+}, false);
+
+g.addEventListener('input', function() {
+  setColor();
+  g_out.value = g.value;
+}, false);
+
+b.addEventListener('change', function() {
+  setColor();
+  b_out.value = b.value;
+}, false);
+
+b.addEventListener('input', function() {
+  setColor();
+  b_out.value = b.value;
+}, false);
+    
+</script>
+</div>
+</body>
+</html>
